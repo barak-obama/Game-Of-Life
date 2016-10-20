@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="LineClient">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/LineClient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<game_of_life height="3" width="3" delay="1" function="default">
+
+	<colors>
+		<color num="0" rgb="0"/>
+		<color num="1" rgb="16776960"/>
+	</colors>
+
+	<board>
+		<cell y="0" x="0" val="1"/>
+		<cell y="1" x="0" val="1"/>
+		<cell y="2" x="0" val="1"/>
+		<cell y="0" x="1" val="1"/>
+		<cell y="1" x="1" val="1"/>
+		<cell y="2" x="1" val="1"/>
+		<cell y="0" x="2" val="1"/>
+		<cell y="1" x="2" val="1"/>
+		<cell y="2" x="2" val="1"/>
+	</board>
+</game_of_life>
+
+
