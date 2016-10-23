@@ -1,5 +1,6 @@
 package com.game_of_life.util;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -8,8 +9,7 @@ import java.awt.*;
 public class Constants {
 
 
-
-    public static class Menu{
+    public static class Menu {
 
         public static final String FILE_MENU_TITLE = "File";
         public static final String GAME_MENU_TITLE = "Game";
@@ -35,9 +35,15 @@ public class Constants {
         public static final String USE_FUNCTION_ITEM_TITLE = "Use saved function";
         public static final String USE_FUNCTION_ITEM_COMMAND = "use_function";
 
+        public static final String NUMBERS_ITEM_TITLE = "Numbers";
+
         public static final String SAVING_ERROR_MESSAGE = "Coping file failed";
 
+
         public static final Dimension CHOOSE_FUNCTION_DIMENSION = new Dimension(200, 300);
+        public static final ImageIcon EMPTY = new ImageIcon(Manifest.getImagesDirectory() + "empty.png");
+        public static final ImageIcon V = new ImageIcon(Manifest.getImagesDirectory() + "v.png");
+
     }
 
 }

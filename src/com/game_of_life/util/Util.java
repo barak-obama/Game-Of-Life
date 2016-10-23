@@ -1,9 +1,9 @@
 package com.game_of_life.util;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.Arrays;
 
 /**
  * Created by obama on 07/10/2016.
@@ -18,10 +18,6 @@ public class Util {
             String[] columns = rows[i].trim().split("[ ]+");
             int[] row = new int[columns.length];
             for (int j = 0; j < columns.length; j++) {
-                if (columns[j].equals("")){
-                    System.out.println(rows[i]);
-                    System.out.println(Arrays.toString(columns));
-                }
                 row[j] = Integer.parseInt(columns[j]);
             }
             matrixInt[i] = row;

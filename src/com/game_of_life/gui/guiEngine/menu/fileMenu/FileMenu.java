@@ -2,6 +2,7 @@ package com.game_of_life.gui.guiEngine.menu.fileMenu;
 
 import com.game_of_life.networking.NetworkingEngine;
 import com.game_of_life.util.Constants;
+import com.game_of_life.util.Manifest;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -45,7 +46,7 @@ public class FileMenu extends JMenu implements ActionListener{
                 engine.save(fileName);
                 break;
             case Constants.Menu.LOAD_ITEM_COMMAND:
-                JFileChooser jFileChooser = new JFileChooser();
+                JFileChooser jFileChooser = new JFileChooser(Manifest.getSavingDirectory());
                 jFileChooser.setFileFilter(new FileNameExtensionFilter("XML files", "xml"));
                 int returnVal = jFileChooser.showOpenDialog(null);
                 if(returnVal == JFileChooser.APPROVE_OPTION){

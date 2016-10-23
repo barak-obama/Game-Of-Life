@@ -18,13 +18,14 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Hashtable;
+import java.util.Map;
 
 /**
  * Created by obama on 07/10/2016.
  */
 public class Default {
 
-    private Hashtable<Integer, Color> colorMap;
+    private Map<Integer, Color> colorMap;
     private int height, width;
     private int delay;
     private String functionName;
@@ -69,7 +70,7 @@ public class Default {
 
     }
 
-    public static boolean save(String name, int[][] matrix, Hashtable<Integer, Color> colorMap, Integer delay, String functionName){
+    public static boolean save(String name, int[][] matrix, Map<Integer, Color> colorMap, Integer delay, String functionName){
         DocumentBuilderFactory dbFactory =
                 DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder =
@@ -134,7 +135,7 @@ public class Default {
         return true;
     }
 
-    private static void saveColorMap(Document doc, Element rootElement, Hashtable<Integer, Color> colorMap) {
+    private static void saveColorMap(Document doc, Element rootElement, Map<Integer, Color> colorMap) {
         Element colors = doc.createElement("colors");
 
         colorMap.forEach((n, c)->{
@@ -168,7 +169,7 @@ public class Default {
     }
 
 
-    public Hashtable<Integer,Color> getColorMap() {
+    public Map<Integer,Color> getColorMap() {
         return colorMap;
     }
 

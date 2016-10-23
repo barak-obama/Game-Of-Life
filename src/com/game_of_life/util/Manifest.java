@@ -29,4 +29,8 @@ public class Manifest {
     public static String getRootDirectory() {
         return "./";
     }
+
+    public static String getImagesDirectory() {
+        return getRootDirectory() + "images/";
+    }
 }

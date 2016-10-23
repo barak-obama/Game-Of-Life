@@ -7,10 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -97,19 +94,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
             return colorMap.get(val);
         }
 
-        // get random RGB
-        Random r = new Random();
-        int colorRGB = r.nextInt(0xFFFFFF);
-        Collection<Integer> RGBs = new ArrayList<>();
-        colorMap.forEach((i, color) -> {
-            RGBs.add(color.getRGB());
-        });
-        while(RGBs.contains(colorRGB)){
-            colorRGB = r.nextInt(0xFFFFFF);
-        }
-        Color color = new Color(colorRGB);
-        colorMap.put(val, color);
-        return color;
+        return networkingEngine.addNumber(val);
 
     }
 

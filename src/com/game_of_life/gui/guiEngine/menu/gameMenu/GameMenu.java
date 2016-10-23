@@ -18,7 +18,7 @@ import java.io.IOException;
  * Created by obama on 13/10/2016.
  */
 public class GameMenu extends JMenu implements ActionListener{
-    JMenuItem start, pause, load_function, use_function;
+    JMenuItem start, pause, load_function, use_function, numbers;
     NetworkingEngine engine;
 
 
@@ -42,11 +42,14 @@ public class GameMenu extends JMenu implements ActionListener{
         use_function.setActionCommand(Constants.Menu.USE_FUNCTION_ITEM_COMMAND);
         use_function.addActionListener(this);
 
+        this.numbers = new Numbers(engine, Constants.Menu.NUMBERS_ITEM_TITLE);
+
 
         add(start);
         add(pause);
         add(load_function);
         add(use_function);
+        add(numbers);
     }
 
     @Override
@@ -64,10 +67,12 @@ public class GameMenu extends JMenu implements ActionListener{
                 int returnVal = jFileChooser.showOpenDialog(null);
                 if(returnVal == JFileChooser.APPROVE_OPTION){
                     File function_file = jFileChooser.getSelectedFile();
-                    File new_function_file = new File(Manifest.getFunctionDirectory() + function_file.getName());
+                    String fileName = function_file.getName();
+                    File new_function_file = new File(Manifest.getFunctionDirectory() + fileName);
 
                     try {
                         Util.copyFile(function_file, new_function_file);
+                        engine.sendFunction(fileName.substring(0, fileName.lastIndexOf('.')));
                     } catch (IOException e1) {
                         e1.printStackTrace();
                         JOptionPane.showMessageDialog(null, Constants.Menu.SAVING_ERROR_MESSAGE);

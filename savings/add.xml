@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <game_of_life delay="1" function="add" height="3" width="3">
     <board>
-        <cell val="1" x="0" y="0"/>
-        <cell val="1" x="1" y="0"/>
-        <cell val="1" x="2" y="0"/>
-        <cell val="1" x="0" y="1"/>
-        <cell val="1" x="1" y="1"/>
-        <cell val="1" x="2" y="1"/>
-        <cell val="1" x="0" y="2"/>
-        <cell val="1" x="1" y="2"/>
-        <cell val="1" x="2" y="2"/>
+        <cell val="7" x="0" y="0"/>
+        <cell val="7" x="1" y="0"/>
+        <cell val="7" x="2" y="0"/>
+        <cell val="7" x="0" y="1"/>
+        <cell val="7" x="1" y="1"/>
+        <cell val="7" x="2" y="1"/>
+        <cell val="7" x="0" y="2"/>
+        <cell val="7" x="1" y="2"/>
+        <cell val="7" x="2" y="2"/>
     </board>
     <colors>
         <color num="0" rgb="-16777216"/>
         <color num="1" rgb="-256"/>
+        <color num="2" rgb="-14088006"/>
+        <color num="3" rgb="-5083033"/>
+        <color num="4" rgb="-13984085"/>
+        <color num="5" rgb="-3077473"/>
+        <color num="6" rgb="-5227597"/>
+        <color num="7" rgb="-10540012"/>
     </colors>
 </game_of_life>

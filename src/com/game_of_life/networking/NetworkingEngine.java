@@ -13,8 +13,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.Hashtable;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class NetworkingEngine {
@@ -27,16 +26,18 @@ public class NetworkingEngine {
     private Scanner err_scanner;
     private Scanner key_scanner = new Scanner(System.in);
 
-    // the
+
     private UIEngine uiEngine;
+    private int environmentMatrixValue = 1;
+    private boolean running;
 
     //save variables
-    private Hashtable<Integer, Color> colorMap;
+    private Map<Integer, Color> colorMap;
     private int[][] matrix;
     private int delay;
     private String functionName;
-    private int environmentMatrixValue = 1;
-    private boolean running;
+
+
 
 
     public NetworkingEngine(UIEngine uiEngine) {
@@ -163,7 +164,7 @@ public class NetworkingEngine {
         out.println(string);
     }
 
-    public Hashtable<Integer, Color> getColorMap() {
+    public Map<Integer, Color> getColorMap() {
         return colorMap;
     }
 
@@ -211,7 +212,12 @@ public class NetworkingEngine {
 
     public void setEnvironmentMatrixValue(int environmentMatrixValue) {
         this.environmentMatrixValue = environmentMatrixValue;
+        if(!colorMap.keySet().contains(environmentMatrixValue)){
+           addNumber(environmentMatrixValue);
+        }
     }
+
+
 
     public boolean isRunning() {
         return running;
@@ -221,5 +227,21 @@ public class NetworkingEngine {
         if (runtimeProgress != null)
             runtimeProgress.destroy();
 
+    }
+
+    public Color addNumber(int val) {
+        // get random RGB
+        Random r = new Random();
+        int colorRGB = r.nextInt(0xFFFFFF);
+        Collection<Integer> RGBs = new ArrayList<>();
+        colorMap.forEach((i, color) -> {
+            RGBs.add(color.getRGB());
+        });
+        while(RGBs.contains(colorRGB)){
+            colorRGB = r.nextInt(0xFFFFFF);
+        }
+        Color color = new Color(colorRGB);
+        colorMap.put(val, color);
+        return color;
     }
 }
