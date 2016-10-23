@@ -62,6 +62,7 @@ public class NetworkingEngine {
                     s = s.substring(0, s.length() - 2);
                     s = s.replaceAll("\\]\\[", "\n");
 
+//                    System.out.println(s);
                     matrix = Util.parseMatrix(s);
 
                     if (!this.paintThread.isAlive()) {
@@ -93,6 +94,7 @@ public class NetworkingEngine {
             }
 
         });
+
     }
 
     public void start() throws IOException, InterruptedException {
@@ -122,13 +124,13 @@ public class NetworkingEngine {
     }
 
     public void loadSaving(File f) {
-        try {
-            start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            start();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         applySave(f);
     }
 

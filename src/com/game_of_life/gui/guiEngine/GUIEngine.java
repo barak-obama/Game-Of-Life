@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Hashtable;
+import java.util.Map;
 
 
 /**
@@ -44,7 +45,7 @@ public class GUIEngine extends WindowAdapter implements UIEngine{
     }
 
     @Override
-    public void setMatrix(int[][] matrix, Hashtable<Integer, Color> colorMap) {
+    public void setMatrix(int[][] matrix, Map<Integer, Color> colorMap) {
         mainPanel.update(matrix, colorMap);
     }
 

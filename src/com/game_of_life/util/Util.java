@@ -3,6 +3,7 @@ package com.game_of_life.util;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
 
 /**
  * Created by obama on 07/10/2016.
@@ -10,18 +11,22 @@ import java.nio.file.StandardCopyOption;
 public class Util {
 
     public static int[][] parseMatrix(String matrix){
-        String[] s = matrix.split("\\n");
-        int height = s.length;
-        int[][] m = new int[height][];
+        String[] rows = matrix.split("\\n");
+        int height = rows.length;
+        int[][] matrixInt = new int[height][];
         for(int i = 0; i < height; i++){
-            String[] ss = s[i].split(" ");
-            int[] row = new int[ss.length];
-            for (int j = 0; j < ss.length; j++) {
-                row[j] = Integer.parseInt(ss[j]);
+            String[] columns = rows[i].trim().split("[ ]+");
+            int[] row = new int[columns.length];
+            for (int j = 0; j < columns.length; j++) {
+                if (columns[j].equals("")){
+                    System.out.println(rows[i]);
+                    System.out.println(Arrays.toString(columns));
+                }
+                row[j] = Integer.parseInt(columns[j]);
             }
-            m[i] = row;
+            matrixInt[i] = row;
         }
-        return m;
+        return matrixInt;
     }
 
     public static String join(Object[] aArr, String sSep) {

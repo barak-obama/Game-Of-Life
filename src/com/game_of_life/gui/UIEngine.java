@@ -3,8 +3,6 @@ package com.game_of_life.gui;
 import com.game_of_life.networking.NetworkingEngine;
 
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
 /**
@@ -14,7 +12,7 @@ public interface UIEngine {
 
 
 
-    void setMatrix(int[][] matrix, Hashtable<Integer, Color> colorMap);
+    void setMatrix(int[][] matrix, Map<Integer, Color> colorMap);
 
     void setEngine(NetworkingEngine engine);
 

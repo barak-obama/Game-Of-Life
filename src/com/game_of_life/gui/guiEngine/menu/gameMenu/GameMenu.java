@@ -78,7 +78,6 @@ public class GameMenu extends JMenu implements ActionListener{
                 String extension = ".py";
                 File functionDirectory = new File(Manifest.getFunctionDirectory());
                 File[] functions = functionDirectory.listFiles((file, name) -> name.endsWith(extension));
-                System.out.println(functions.length);
                 String[] functionsName = new String[functions.length];
                 for (int i = 0; i < functions.length; i++) {
                     String name = functions[i].getName();

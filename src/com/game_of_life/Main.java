@@ -45,7 +45,7 @@ public class Main {
 
     private Main() throws IOException, InterruptedException, ParserConfigurationException, SAXException{
         GUIEngine gui = new GUIEngine();
-        NetworkingEngine engine = new NetworkingEngine(gui);
+        new NetworkingEngine(gui).start();
 
 
 

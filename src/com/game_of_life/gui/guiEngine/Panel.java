@@ -7,7 +7,10 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.Hashtable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -46,7 +49,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
         g.setColor(default_color);
     }
 
-    public void update(int[][] matrix, Hashtable<Integer, Color> colorMap) {
+    public void update(int[][] matrix, Map<Integer, Color> colorMap) {
 
         this.height = matrix.length;
         this.width = matrix[0].length;
@@ -67,7 +70,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
         super.repaint();
     }
 
-    private CopyOnWriteArrayList<PaintSlot> createPaintSlots(int[][] matrix, int slots, int heightDiff, int widthDiff, Hashtable<Integer, Color> colorMap) {
+    private CopyOnWriteArrayList<PaintSlot> createPaintSlots(int[][] matrix, int slots, int heightDiff, int widthDiff, Map<Integer, Color> colorMap) {
         CopyOnWriteArrayList<PaintSlot> paintSlots = new CopyOnWriteArrayList<>();
 
         if (height == 0 || width == 0) {
@@ -88,8 +91,26 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
         return paintSlots;
     }
 
-    private Color getColor(int val, Hashtable<Integer, Color> colorMap) {
-        return colorMap.keySet().contains(val) ? colorMap.get(val) : Color.MAGENTA;
+    private Color getColor(int val, Map<Integer, Color> colorMap) {
+
+        if(colorMap.keySet().contains(val)){
+            return colorMap.get(val);
+        }
+
+        // get random RGB
+        Random r = new Random();
+        int colorRGB = r.nextInt(0xFFFFFF);
+        Collection<Integer> RGBs = new ArrayList<>();
+        colorMap.forEach((i, color) -> {
+            RGBs.add(color.getRGB());
+        });
+        while(RGBs.contains(colorRGB)){
+            colorRGB = r.nextInt(0xFFFFFF);
+        }
+        Color color = new Color(colorRGB);
+        colorMap.put(val, color);
+        return color;
+
     }
 
     private Point convertScreenLocation2MatrixLocation(double x, double y) {
