@@ -61,7 +61,7 @@ def set_val(i, j, val):
 
 @command('eval', str)
 def eva(v):
-    print eval(v)
+    print(eval(v))
     sys.stdout.flush()
 
 

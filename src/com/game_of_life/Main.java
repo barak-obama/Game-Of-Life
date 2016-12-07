@@ -13,41 +13,26 @@ import java.io.IOException;
  */
 public class Main {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         OSBasedUtil.getInstance().setUISettings();
 
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new Main();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ParserConfigurationException e) {
-                    e.printStackTrace();
-                } catch (SAXException e) {
-                    e.printStackTrace();
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                start();
+            } catch (IOException | InterruptedException | ParserConfigurationException | SAXException e) {
+                e.printStackTrace();
             }
+
         });
-
-
-
-
-
 
 
     }
 
 
-    private Main() throws IOException, InterruptedException, ParserConfigurationException, SAXException{
+    private static void start() throws IOException, InterruptedException, ParserConfigurationException, SAXException {
         GUIEngine gui = new GUIEngine();
         new NetworkingEngine(gui).start();
-
-
-
     }
 }

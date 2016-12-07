@@ -5,7 +5,6 @@ package com.game_of_life.util;
  */
 public class Manifest {
 
-
     public static String getSavingDirectory(){
         return getRootDirectory() + "savings/";
     }

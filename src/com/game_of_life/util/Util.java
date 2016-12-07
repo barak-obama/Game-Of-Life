@@ -1,5 +1,7 @@
 package com.game_of_life.util;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -42,6 +44,19 @@ public class Util {
 
     public static void copyFile(File source, File dest) throws IOException {
         Files.copy(source.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+    }
+
+    public static File getFile(String startPath, String extension){
+        FileDialog fd = new FileDialog((JFrame) null, "Choose a file", FileDialog.LOAD);
+        fd.setDirectory(startPath);
+        fd.setFilenameFilter((dir, name) -> name.endsWith(extension));
+        fd.setMultipleMode(false);
+        fd.setVisible(true);
+        File[] filename = fd.getFiles();
+        if(filename.length == 0){
+            return null;
+        }
+        return filename[0];
     }
 
 

@@ -44,6 +44,10 @@ public class Constants {
         public static final ImageIcon EMPTY = new ImageIcon(Manifest.getImagesDirectory() + "empty.png");
         public static final ImageIcon V = new ImageIcon(Manifest.getImagesDirectory() + "v.png");
 
+        public static final String BOARD_MENU_TITLE = "Board";
+
+        public static final String SET_ITEM_TITLE = "Set board size";
+        public static final String SET_ITEM_COMMAND = "set";
     }
 
 }

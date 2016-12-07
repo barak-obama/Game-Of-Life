@@ -1,4 +1,4 @@
-package com.game_of_life.util.osBasedUtil;
+package game_of_life.util.osBasedUtil;
 
 import javax.swing.*;
 

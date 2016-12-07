@@ -1,4 +1,4 @@
-package com.game_of_life.gui.guiEngine.menu.gameMenu;
+package com.game_of_life.gui.guiEngine.menu.boardMenu;
 
 import com.game_of_life.networking.NetworkingEngine;
 import com.game_of_life.util.Constants;
@@ -54,6 +54,8 @@ public class Numbers extends JMenu implements MenuListener, ActionListener {
             Numbers.this.add(menuItem);
         });
 
+        System.console();
+
     }
 
     @Override
@@ -77,6 +79,3 @@ public class Numbers extends JMenu implements MenuListener, ActionListener {
     }
 }
 
-class NumberItem extends JMenuItem {
-
-}

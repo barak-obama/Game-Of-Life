@@ -18,7 +18,7 @@ def __notify__(type, *message):
         message[i] = str(v)
     message.insert(0, type)
     message = '&&'.join(message)
-    print (message)
+    print(message)
     sys.stdout.flush()
 
 

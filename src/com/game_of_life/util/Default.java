@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * Created by obama on 07/10/2016.
@@ -29,10 +30,12 @@ public class Default {
     private int height, width;
     private int delay;
     private String functionName;
+    private Properties details;
     private int[][] matrix;
 
     public Default(File save) throws IOException, SAXException, ParserConfigurationException {
         colorMap = new Hashtable<>();
+        details = new Properties();
         load(save);
     }
 
@@ -105,8 +108,7 @@ public class Default {
 
         TransformerFactory transformerFactory =
                 TransformerFactory.newInstance();
-        Transformer transformer =
-                null;
+        Transformer transformer;
         try {
             transformer = transformerFactory.newTransformer();
         } catch (TransformerConfigurationException e) {

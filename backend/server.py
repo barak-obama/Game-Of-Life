@@ -13,12 +13,14 @@ next_step = lambda x, i, j: x[i, j]
 isRunning = False
 
 
+
 def listener():
     while True:
         m = raw_input()  # type: str
         m = m.strip()
         m = m.split(' ')  # type: list[str]
         commander.execute_command(*m)
+        time.sleep(0.01)
 
 
 def calc():

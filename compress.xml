@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+
+    <copyfile src="out/artifacts/Game_of_Life_jar/Game of Life.jar" dest="${dest}/Game of Life.jar" forceoverwrite="true"/>
+    <target name="copy">
+        <copydir src="backend" dest="${dest}/backend" forceoverwrite="true"/>
+        <copydir src="images" dest="${dest}/images" forceoverwrite="true"/>
+        <copydir src="savings" dest="${dest}/savings" forceoverwrite="true"/>
+    </target>
+
+    <target name="zip">
+        <antcall target="copy"/>
+        <zip destfile="${dest}/../Game of Life.zip" basedir="${dest}"/>
+    </target>
+
+
+
+
+</project>
